@@ -1,0 +1,97 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--link to bootstrap to reset the css. you could remove this or use your own resets.*/ -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <style>
+        #googleMap {
+            width: 100%;
+            height: 80%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        /*style the box*/
+        .gm-style .gm-style-iw {
+            background-color: #003366 !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 80% !important;
+            min-height: 120px !important;
+            padding-top: 10px;
+            display: block !important;
+        }
+
+            /*style the p tag*/
+            .gm-style .gm-style-iw #google-popup p {
+                padding: 10px;
+            }
+
+
+        /*style the arrow*/
+        .gm-style div div div div div div div div {
+            /*background-color: #003366 !important;*/
+            padding: 0;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            color: #fff;
+            font-size: 16px;
+            font-family: Verdana;
+        }
+
+            /*style the link*/
+            .gm-style div div div div div div div div a {
+                color: #f1f1f1;
+                font-weight: bold;
+                font-family: Verdana;
+            }
+    </style>
+
+
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div id="dvMap" style="width: 1800px; height: 1500px">
+    </div>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1vGsWvuJBDgFKy8unj3W8conNBeVDAAw"></script>
+    <script type="text/javascript">
+        var markers = @Html.Raw(ViewBag.Markers);
+        window.onload = function () {
+            var mapOptions = {
+                center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var infoWindow = new google.maps.InfoWindow();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            for (i = 0; i < markers.length; i++) {
+                var data = markers[i]
+                var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: data.title,
+                    icon: "http://www.codeshare.co.uk/images/blue-pin.png",
+                    animation: google.maps.Animation.DROP
+                });
+                (function (marker, data) {
+                    google.maps.event.addListener(marker, "click", function (e) {
+                        infoWindow.setContent(data.description);
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+            }
+        }
+    </script>
+</body>
+</html>

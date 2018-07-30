@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinCeng_MVC_Map", "JoinCeng_MVC_Map\JoinCeng_MVC_Map.csproj", "{0DC61D39-4485-40D7-8B5F-2DCC5F57ECDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DC61D39-4485-40D7-8B5F-2DCC5F57ECDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC61D39-4485-40D7-8B5F-2DCC5F57ECDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC61D39-4485-40D7-8B5F-2DCC5F57ECDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC61D39-4485-40D7-8B5F-2DCC5F57ECDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1172EFF9-82BC-4817-A947-960C3B2F3136}
+	EndGlobalSection
+EndGlobal
